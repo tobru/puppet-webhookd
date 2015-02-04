@@ -37,6 +37,7 @@
 #
 class webhookd (
   $package_ensure      = $webhookd::params::package_ensure,
+  $package_provider    = $webhookd::params::package_provider,
   $service_enable      = $webhookd::params::service_enable,
   $service_ensure      = $webhookd::params::service_ensure,
   $service_manage      = $webhookd::params::service_manage,
@@ -44,10 +45,12 @@ class webhookd (
   $webhookd_config     = $webhookd::params::webhookd_config,
 ) inherits webhookd::params {
 
-  Anchor['webhookd::begin'] ->
-    Class['webhookd::install'] ->
-    Class['webhookd::config']  ->
-    Class['webhookd::service'] ->
-  Anchor['webhookd::end']
+  Class['webhookd::install'] ->
+  Class['webhookd::config']  ~>
+  Class['webhookd::service']
+
+  contain webhookd::install
+  contain webhookd::config
+  contain webhookd::service
 
 }

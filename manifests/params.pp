@@ -1,5 +1,6 @@
 class webhookd::params (
   $package_ensure      = present,
+  $package_provider    = undef,
   $service_enable      = true,
   $service_ensure      = running,
   $service_manage      = true,

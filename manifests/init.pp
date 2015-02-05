@@ -43,6 +43,12 @@ class webhookd (
   $service_manage      = $webhookd::params::service_manage,
   $webhookd_configfile = $webhookd::params::webhookd_configfile,
   $webhookd_config     = $webhookd::params::webhookd_config,
+  $daemon_user         = $webhookd::params::daemon_user,
+  $daemon_group        = $webhookd::params::daemon_group,
+  $daemon_port         = $webhookd::params::daemon_port,
+  $daemon_ssl_enabled  = $webhookd::params::daemon_ssl_enabled,
+  $daemon_ssl_key      = $webhookd::params::daemon_ssl_key,
+  $daemon_ssl_cert     = $webhookd::params::daemon_ssl_cert,
 ) inherits webhookd::params {
 
   Class['webhookd::install'] ->

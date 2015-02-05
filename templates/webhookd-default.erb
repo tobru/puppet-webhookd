@@ -1,0 +1,10 @@
+# THIS FILE IS MANAGED BY PUPPET
+# /etc/default/webhookd
+# Configuration for Webhookd daemon init script
+AS_USER=<%= @daemon_user %>
+AS_GROUP=<%= @daemon_group %>
+CONFIGFILE=<%= @webhookd_configfile %>
+PORT=<%= @daemon_port %>
+SSL=<%= @daemon_ssl_enabled %>
+SSK_KEY=<%= @daemon_ssl_key %>
+SSL_CERT=<%= @daemon_ssl_cert %>
